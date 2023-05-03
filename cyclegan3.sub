@@ -1,0 +1,19 @@
+#!/bin/bash
+# FILENAME: cyclegan3.sub
+
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --gpus-per-node=1
+#SBATCH --mem-per-gpu=50G
+#SBATCH -t 12:00:00
+#SBATCH -A guo675-h
+
+module purge 
+module --force purge
+module load anaconda
+module load anaconda/2020.11-py38
+module load cuda/11.7.0 cudnn/cuda-11.7_8.6
+module load use.own
+module load conda-env/projectenv-py3.8.5
+
+python cyclegan_3.py
